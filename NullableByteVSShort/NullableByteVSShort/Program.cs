@@ -2,18 +2,22 @@
 
 class Program
 {
-    private static T[] sub<T>(string label)
+    private static T[] sub<T>(string label, bool output)
     {
         long start = Environment.WorkingSet;
         T[] array = new T[100000];
-        Console.WriteLine($"{label} {Environment.WorkingSet - start}");
+        if (output) Console.WriteLine($"{label} {Environment.WorkingSet - start}");
         return array;
     }
 
 
     static void Main()
     {
-        sub<byte?>("byte?");
-        sub<short>("short");
+        // 安定するまで待つ
+        sub<byte?>("byte?", false);
+        sub<short>("short", false);
+        // テスト実行
+        sub<byte?>("byte?", true);
+        sub<short>("short", true);
     }
 }
