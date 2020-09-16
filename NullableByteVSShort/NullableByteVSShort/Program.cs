@@ -2,22 +2,21 @@
 
 class Program
 {
-    private static T[] sub<T>(string label, bool output)
+    private static T[] sub<T>(string label)
     {
-        long start = Environment.WorkingSet;
-        T[] array = new T[100000];
-        if (output) Console.WriteLine($"{label} {Environment.WorkingSet - start}");
+        long start = GC.GetTotalMemory(true);
+        T[] array = new T[1000000];
+        Console.WriteLine($"{label} {GC.GetTotalMemory(true) - start}");
         return array;
     }
 
-
     static void Main()
     {
-        // 安定するまで待つ
-        sub<byte?>("byte?", false);
-        sub<short>("short", false);
-        // テスト実行
-        sub<byte?>("byte?", true);
-        sub<short>("short", true);
+        sub<byte?>("byte?");
+        sub<short>("short");
+        sub<short?>("short?");
+        sub<int>("int");
+        sub<int?>("int?");
+        sub<long>("long");
     }
 }
