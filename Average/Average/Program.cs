@@ -9,6 +9,6 @@ class Program
         int[] ar = { 1, 2, 3, 4 };
         // 実はavgはdouble型
         var avg = ar.Average();
-        Console.WriteLine($"Avarage is {avg}");
+        Console.WriteLine($"Average is {avg}");
     }
 }
