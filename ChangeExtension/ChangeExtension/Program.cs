@@ -15,7 +15,7 @@ class Program
         };
         foreach (var item in ar)
         {
-            var newname = Path.ChangeExtension(item, ".bak");
+            var newname = Path.ChangeExtension(item, "bak");
             Console.WriteLine($"{item} => {newname}");
         }
     }
